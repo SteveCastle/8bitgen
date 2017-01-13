@@ -13,7 +13,7 @@ class Grid extends Component {
   render() {
     return (
       <div className="Grid">
-        <Frame/>
+        <Frame sprite={[[1,2],[1,2]]}/>
       </div>
     );
   }

@@ -10,7 +10,7 @@ class ArtBoard extends Component {
   render() {
     return (
       <div className="ArtBoard">
-
+        <Grid/>
       </div>
     );
   }
