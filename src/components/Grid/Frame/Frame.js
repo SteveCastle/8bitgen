@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Cell from './Cell/Cell'
 
 class Frame extends Component {
   static propTypes = {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Frame from './Frame/Frame'
 
 class Grid extends Component {
   static propTypes = {
@@ -12,7 +12,7 @@ class Grid extends Component {
   render() {
     return (
       <div className="Grid">
-
+        <Frame/>
       </div>
     );
   }

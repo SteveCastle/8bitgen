@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Grid from './Grid/Grid';
+import Palette from './Palette/Palette';
 
 class ArtBoard extends Component {
   static propTypes = {
