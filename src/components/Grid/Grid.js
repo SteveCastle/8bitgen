@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Frame from './Frame/Frame'
+import './grid.css'
 
 class Grid extends Component {
   static propTypes = {
@@ -13,7 +14,14 @@ class Grid extends Component {
   render() {
     return (
       <div className="Grid">
-        <Frame sprite={[[1,2],[3,5]]}/>
+        <Frame sprite={[['green','red','red','orange','red','red','red','red'],
+                        ['green','red','red','red','red','red','red','red'],
+                        ['green','red','red','red','red','red','red','red'],
+                        ['green','red','red','red','pink','red','red','red'],
+                        ['green','red','red','red','red','red','red','red'],
+                        ['green','red','red','red','red','red','red','red'],
+                        ['green','red','red','red','red','red','red','red'],
+                        ['green','red','red','green','red','red','red','red']]}/>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cell from './Cell/Cell'
+import './frame.css'
 
 class Frame extends Component {
   static propTypes = {
@@ -7,13 +8,24 @@ class Frame extends Component {
     sizeY: React.PropTypes.number,
     sprite: React.PropTypes.array
   };
+
+  getSquare() {
+    return window.innerHeight;
+  }
+
   render() {
+    const style = {
+      width: this.getSquare(),
+      height: this.getSquare()
+    }
     return (
-      <div className="Frame">
+      <div className="Frame" style={style}>
         {this.props.sprite.map((row) =>
-               row.map((color) =>
+          <div className="row clearfix">
+               {row.map((color) =>
                  <Cell color={color}/>
-               )
+               )}
+          </div>
         )}
       </div>
     );
