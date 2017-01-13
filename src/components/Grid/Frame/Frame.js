@@ -11,10 +11,10 @@ class Frame extends Component {
     return (
       <div className="Frame">
         {this.props.sprite.map((row) =>
-               row.map((column) =>
-                 <Cell/>
-           )
-          )}
+               row.map((color) =>
+                 <Cell color={color}/>
+               )
+        )}
       </div>
     );
   }

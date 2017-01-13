@@ -8,7 +8,7 @@ class Cell extends Component {
   render() {
     return (
       <div className="Cell">
-
+       {this.props.color}
       </div>
     );
   }
