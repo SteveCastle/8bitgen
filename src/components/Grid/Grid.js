@@ -4,7 +4,8 @@ import Frame from './Frame/Frame'
 class Grid extends Component {
   static propTypes = {
     GridNumber: React.PropTypes.string,
-    size: React.PropTypes.number,
+    sizeX: React.PropTypes.number,
+    sizeY: React.PropTypes.number,
     frames: React.PropTypes.array,
     currentFrame: React.PropTypes.number,
     totalFrames: React.PropTypes.number
