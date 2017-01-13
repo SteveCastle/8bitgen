@@ -3,7 +3,8 @@ import Cell from './Cell/Cell'
 
 class Frame extends Component {
   static propTypes = {
-    frameNumber: React.PropTypes.string,
+    sizeX: React.PropTypes.number,
+    sizeY: React.PropTypes.number,
     sprite: React.PropTypes.array
   };
   render() {
