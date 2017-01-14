@@ -10,7 +10,7 @@ class Color extends Component {
   		backgroundColor: this.props.color
   	}
     return (
-      <div className="Color" style={style}>
+      <div className="Color" style={style} onClick={() => this.props.switchColor(this.props.color)}>
 
       </div>
     );

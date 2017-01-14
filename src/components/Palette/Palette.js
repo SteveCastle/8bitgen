@@ -12,7 +12,7 @@ class Palette extends Component {
       <div className="Palette clearfloat">
       <Options selectedColor={this.props.selectedColor}/>
         {this.props.colors.map((color, index)=>
-        	<Color color={color} key={index}/>
+        	<Color color={color} key={index} switchColor={this.props.switchColor}/>
         	)}
       </div>
     );

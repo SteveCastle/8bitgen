@@ -16,10 +16,9 @@ export function changeFrame(newFrame) {
     }
 }
 
-export function paintCell(color, cell) {
+export function paintCell(cell) {
     return {
         type: PAINTCELL,
-        color,
         cell
     }
 }

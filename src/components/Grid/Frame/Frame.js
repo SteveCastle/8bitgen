@@ -20,10 +20,15 @@ class Frame extends Component {
     }
     return (
       <div className="Frame" style={style}>
-        {this.props.sprite.map((row, index) =>
-          <div className="row clearfix" key={index}>
-               {row.map((color, index) =>
-                 <Cell color={color} key={index}/>
+        {this.props.sprite.map((row, yIndex) =>
+          <div className="row clearfix" key={yIndex}>
+               {row.map((color, xIndex) =>
+                 <Cell color={color}
+                       frameNumber={this.props.frameNumber}
+                       xPos = {xIndex}
+                       yPos = {yIndex}
+                       key={xIndex} 
+                       paintCell={this.props.paintCell}/>
                )}
           </div>
         )}

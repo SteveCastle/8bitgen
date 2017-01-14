@@ -10,7 +10,7 @@ class Cell extends Component {
       backgroundColor:this.props.color
     }
     return (
-      <div className="Cell" style={style}>
+      <div className="Cell" style={style} onClick={() => this.props.paintCell([this.props.frameNumber, this.props.xPos, this.props.yPos])}>
       </div>
     );
   }

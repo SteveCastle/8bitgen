@@ -105,8 +105,8 @@ const configureStore = function configureStore(initialState) {
 const store = configureStore(initialState);
 
 
-ReactDOM.render( < Provider store = { store } >
-    < App / >
-    < /Provider>,
+ReactDOM.render( <Provider store={ store }>
+      <App/>
+    </Provider>,
     document.getElementById('root')
 );

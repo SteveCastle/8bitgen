@@ -13,9 +13,12 @@ class ArtBoard extends Component {
   render() {
     return (
       <div className="ArtBoard">
-        <Palette colors={this.props.colors} selectedColor={this.props.selectedColor}/>
+        <Palette colors={this.props.colors} 
+                 selectedColor={this.props.selectedColor} 
+                 switchColor={this.props.switchColor}/>
         <Grid currentFrame={this.props.currentFrame}
-              frames={this.props.frames}/>
+              frames={this.props.frames}
+              paintCell={this.props.paintCell}/>
       </div>
     );
   }

@@ -1,13 +1,17 @@
-function switchColor(state, color) {
+import {fromJS} from 'immutable';
 
+function switchColor(state, color) {
+  return Object.assign({}, state, {
+    selectedColor: color
+  })
 }
 
 function changeFrame(state, frame) {
 
 }
 
-function paintCell(state, cell, color) {
-
+function paintCell(state, color, cell) {
+   return state.updateIn(['frames',cell[0],cell[2],cell[1]], oldColor => color).toJS()
 }
 
 
@@ -16,11 +20,11 @@ function paintCell(state, cell, color) {
 export default function(state = {}, action) {
     switch (action.type) {
         case 'SWITCHCOLOR':
-            return switchColor(state, action);
+            return switchColor(state, action.newColor);
         case 'CHANGEFRAME':
             return changeFrame(state, action);
         case 'PAINTCELL':
-            return paintCell(state, action);
+            return paintCell(fromJS(state), state.selectedColor, action.cell);
         default:
             return state
     }
