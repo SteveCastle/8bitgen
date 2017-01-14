@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import Grid from './Grid/Grid';
 import Palette from './Palette/Palette';
+import * as actionCreators from '../actions/actions';
 import './art-board.css'
 
 class ArtBoard extends Component {
@@ -11,18 +13,24 @@ class ArtBoard extends Component {
   render() {
     return (
       <div className="ArtBoard">
-        <Grid currentFrame={0}
-              frames={[[['#000','#000','#f9af14','#f9af14','#f9af14','#000','#000','#bcbcbc'],
-                        ['#000','#f9af14','#f9af14','#f9af14','#f9af14','#f9af14','#000','#bcbcbc'],
-                        ['#000','#f9af14','#f2be98','#000','#ffc9a1','#000','#000','#bcbcbc'],
-                        ['#df9d12','#df9d12','#f2be98','#ffc9a1','#ffc9a1','#ffc9a1','#000','#bcbcbc'],
-                        ['#000','#358230','#358230','#359030','#359030','#000','#000','#a9a9a9'],
-                        ['#ffc9a1','#358230','#358230','#359030','#358230','#358230','#ffc9a1','#f2be98'],
-                        ['#000','#000','#358230','#358230','#358230','#000','#000','brown'],
-                        ['#000','#ad0200','#000','#000','#ad0200','#000','#000','#000']]]}/>
+        <Palette colors={this.props.colors} selectedColor={this.props.selectedColor}/>
+        <Grid currentFrame={this.props.currentFrame}
+              frames={this.props.frames}/>
       </div>
     );
   }
 }
 
-export default ArtBoard;
+function mapStateToProps(state) {
+  return {
+    frames: state.frames,
+    colors: state.colors,
+    selectedColor: state.selectedColor,
+    currentFrame: state.currentFrame,
+    ...actionCreators
+  };
+}
+
+
+
+export const ArtBoardContainer=connect(mapStateToProps, actionCreators)(ArtBoard);
