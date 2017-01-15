@@ -1,8 +1,12 @@
+require("babel-core/register");
+require("babel-polyfill");
+
 import express from 'express';
 import fs from 'fs';
 import graphqlHTTP from 'express-graphql';
 import mongoose from 'mongoose';
 import schema from './graphql/schema'
+
 
 const app = express();
 
