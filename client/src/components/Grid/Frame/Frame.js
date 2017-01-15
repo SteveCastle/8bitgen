@@ -25,8 +25,8 @@ class Frame extends Component {
                {row.map((color, xIndex) =>
                  <Cell color={color}
                        frameNumber={this.props.frameNumber}
-                       xPos = {xIndex}
-                       yPos = {yIndex}
+                       xPos={xIndex}
+                       yPosy={yIndex}
                        key={xIndex} 
                        paintCell={this.props.paintCell}/>
                )}
