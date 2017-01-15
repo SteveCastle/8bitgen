@@ -7,6 +7,7 @@ import {
   GraphQLID,
   GraphQLList
 } from 'graphql';
+import {Grid} from '../Grid/gridSchema';
 
 export const Frame = new GraphQLObjectType({
 	name: 'Frame',
