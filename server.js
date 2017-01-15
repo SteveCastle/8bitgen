@@ -1,6 +1,11 @@
-const express = require('express');
-const fs = require('fs');
+import express from 'express';
+import fs from 'fs';
+import graphqlHTTP from 'express-graphql';
+import mongoose from 'mongoose';
+import schema from './graphql/schema'
+
 const app = express();
+
 
 app.set('port', (process.env.PORT || 3001));
 
@@ -9,14 +14,13 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+app.use('/graphql', graphqlHTTP(req => ({
+  schema,
+  pretty: true,
+  graphiql: true
 
-app.get('/api/hotels', (req, res) => {
-    res.sendFile('./api/hotels/index.json', { root : __dirname})
-});
+})));
 
-app.get('/api/hotels/venetian', (req, res) => {
-    res.sendFile('./api/hotels/venetian.json', { root : __dirname})
-});
 
 app.listen(app.get('port'), () => {
   console.log(`Find the server at: http://localhost:${app.get('port')}/`); // eslint-disable-line no-console
