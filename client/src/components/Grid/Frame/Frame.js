@@ -10,7 +10,7 @@ class Frame extends Component {
   };
 
   getSquare() {
-    return window.innerHeight;
+    return (window.innerHeight < window.innerWidth) ? window.innerHeight : window.innerWidth;
   }
 
   render() {

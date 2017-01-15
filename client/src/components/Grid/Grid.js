@@ -14,7 +14,9 @@ class Grid extends Component {
   render() {
     return (
       <div className="Grid">
-        <Frame sprite={this.props.frames[this.props.currentFrame]} paintCell={this.props.paintCell} frameNumber={this.props.currentFrame}/>
+        <Frame sprite={this.props.frames[this.props.currentFrame]}
+               paintCell={this.props.paintCell} 
+               frameNumber={this.props.currentFrame}/>
       </div>
     );
   }
