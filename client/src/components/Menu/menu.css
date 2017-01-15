@@ -8,7 +8,7 @@
 }
 
 .Menu h3{
-	color: rgb(168, 16, 0);
+	color: rgb(222, 21, 0);
 	text-shadow: 1px 4px 4px rgb(0, 0, 0);
 
 }
@@ -32,8 +32,14 @@ margin-bottom:20px;
 }
 
 .Menu .characterProfile .characterName{
-font-size:.6em;
+font-size:1em;
 position:absolute;
-top:10px;
-left:10px;
+top:6px;
+left:6px;
+}
+
+.Menu .characterProfile .userIcon{
+position:absolute;
+bottom:2px;
+left:18px;
 }

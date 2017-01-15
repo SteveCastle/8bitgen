@@ -13,6 +13,7 @@ class Menu extends Component {
       <h3 className="subGroup">My Player</h3>
       <div className='characterProfile'>
       <span className="characterName">STC</span>
+      <img src="/img/user.png" alt="User Icon" className="userIcon"/> 
       </div>
       {['Profile', 'My Art', 'Log Out'].map((title, link)=><div className="button">{title}</div>
         )}
