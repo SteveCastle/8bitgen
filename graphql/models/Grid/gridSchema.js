@@ -9,8 +9,8 @@ import {
   GraphQLList
 } from 'graphql';
 
-import Frame from '../Frame/frameSchema'
-import User from '../User/userSchema'
+import {Frame} from '../Frame/frameSchema';
+import {User} from '../User/userSchema';
 
 
 export const Grid = new GraphQLObjectType({
@@ -25,6 +25,10 @@ export const Grid = new GraphQLObjectType({
     height: {type: GraphQLInt, description: 'The datetime the grid was last updated'},
     width: {type: GraphQLInt, description: 'The datetime the grid was last updated'},
     likes: {type: GraphQLInt, description: 'Number of likes received by this grid'},
+    user: {type: User, 
+           description: 'The user who created this grid',
+           resolve: () => ({id:5, name:'STC'})
+  },
     frames: {
       type: new GraphQLList(new GraphQLList(new GraphQLList(GraphQLString))),
       description: 'The Frames in this grid.',

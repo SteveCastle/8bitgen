@@ -8,7 +8,7 @@ export default {
       id: {type: new GraphQLNonNull(GraphQLID)}
     },
     async resolve() {
-      return {id: 5, user: 5,title: 'Hello World', createdAt: new Date(),updatedAt: new Date(), height:8, width:8, frames:[]}
+      return {id: 5, user: 5,title: 'Hello World', likes:7, createdAt: new Date(),updatedAt: new Date(), height:8, width:8}
     }
   }
 };
