@@ -11,7 +11,7 @@ class Options extends Component {
   	}
     return (
       <div className="Options" style={style}>
-
+        <div className="label">Selected Color</div>
       </div>
     );
   }

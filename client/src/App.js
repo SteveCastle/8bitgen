@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {ArtBoardContainer} from './components/ArtBoard';
+import Menu from './components/Menu/Menu';
 import './App.css';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <ArtBoardContainer/>
+        <Menu/>
       </div>
     );
   }

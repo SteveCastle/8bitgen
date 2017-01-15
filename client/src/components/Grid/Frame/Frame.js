@@ -26,7 +26,7 @@ class Frame extends Component {
                  <Cell color={color}
                        frameNumber={this.props.frameNumber}
                        xPos={xIndex}
-                       yPosy={yIndex}
+                       yPos={yIndex}
                        key={xIndex} 
                        paintCell={this.props.paintCell}/>
                )}
