@@ -10,8 +10,9 @@ class Info extends Component {
     return (
       <div className="Info">
       <h2>Link</h2>
+      <span>8X8</span>
       <CharacterIcon name={'PCH'} iconUrl={'/img/creator.png'}/>
-      <span className="heartCount"><img src="/img/heart.png"/> X 24</span>
+      <span className="heartCount"><img src="/img/heart.png"/> X {this.props.votes}</span>
       </div>
     );
   }
