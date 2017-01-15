@@ -1,3 +1,5 @@
-.Grid{
-	height:100%;
+.Grid {
+    margin: auto;
+    height: 100%;
+    position: relative;
 }

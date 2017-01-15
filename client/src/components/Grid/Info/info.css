@@ -1,0 +1,15 @@
+.Info{
+	position:fixed;
+	width:200px;
+	height:auto;
+	left:220px;
+	top:10px;
+}
+
+.Info h2{
+	font-size: 1em;
+}
+
+.Info .heartCount{
+	font-size:1em;
+}

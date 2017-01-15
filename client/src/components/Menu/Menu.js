@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from './Logo/Logo'
+import CharacterIcon from '../CharacterIcon/CharacterIcon'
 import './menu.css'
 
 class Menu extends Component {
@@ -11,10 +12,7 @@ class Menu extends Component {
       <div className="Menu clearfloat">
       <Logo/>
       <h3 className="subGroup">My Player</h3>
-      <div className='characterProfile'>
-      <span className="characterName">STC</span>
-      <img src="/img/user.png" alt="User Icon" className="userIcon"/> 
-      </div>
+      <CharacterIcon name={'STC'} iconUrl={'/img/user.png'}/>
       {['Profile', 'My Art', 'Log Out'].map((title, link)=><div className="button">{title}</div>
         )}
       <h3 className="subGroup">Explore</h3>

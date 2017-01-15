@@ -9,17 +9,9 @@ class Frame extends Component {
     sprite: React.PropTypes.array
   };
 
-  getSquare() {
-    return (window.innerHeight < window.innerWidth) ? window.innerHeight : window.innerWidth;
-  }
-
   render() {
-    const style = {
-      width: this.getSquare(),
-      height: this.getSquare()
-    }
     return (
-      <div className="Frame" style={style}>
+      <div className="Frame">
         {this.props.sprite.map((row, yIndex) =>
           <div className="row clearfix" key={yIndex}>
                {row.map((color, xIndex) =>
