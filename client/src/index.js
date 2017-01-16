@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import { Provider } from 'react-redux';
 import reducer from './reducers/reducer';
 import loggingMiddleware from './middleware/loggingMiddleware';
+import ApolloClient, { createNetworkInterface }  from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
 import App from './App';
 import './index.css';
 
@@ -24,6 +26,10 @@ const initialState = {
     currentFrame: 0,
     selectedColor: "#000"
 }
+
+const client = new ApolloClient({
+    networkInterface: createNetworkInterface({uri:'http://localhost:3001/graphql'})
+});
 
 const configureStore = function configureStore(initialState) {
     return createStore(
