@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Grid from './Grid/Grid';
 import Palette from './Palette/Palette';
+import Menu from './Menu/Menu';
 import * as actionCreators from '../actions/actions';
 import './art-board.css'
 
@@ -13,6 +14,7 @@ class ArtBoard extends Component {
   render() {
     return (
       <div className="ArtBoard">
+      <Menu/>
         <Palette colors={this.props.colors} 
                  selectedColor={this.props.selectedColor} 
                  switchColor={this.props.switchColor}/>
@@ -26,10 +28,10 @@ class ArtBoard extends Component {
 
 function mapStateToProps(state) {
   return {
-    frames: state.frames,
-    colors: state.colors,
-    selectedColor: state.selectedColor,
-    currentFrame: state.currentFrame,
+    frames: state.grids.frames,
+    colors: state.grids.colors,
+    selectedColor: state.grids.selectedColor,
+    currentFrame: state.grids.currentFrame,
     ...actionCreators
   };
 }
