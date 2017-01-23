@@ -12,7 +12,7 @@ class Info extends Component {
       <h2>Link</h2>
       <span>8X8</span>
       <CharacterIcon name={'PCH'} iconUrl={'/img/creator.png'}/>
-      <span className="heartCount"><img src="/img/heart.png"/> X {this.props.votes}</span>
+      <span className="heartCount"><img src="/img/heart.png" alt="Heart rating"/> X {this.props.votes}</span>
       </div>
     );
   }

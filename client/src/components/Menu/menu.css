@@ -1,5 +1,6 @@
 .Menu{
 	position: fixed;
+	text-align:center;
 	right:0;
 	top:0;
 	width:200px;

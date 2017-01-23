@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag'
 import Grid from './Grid/Grid';
 import Palette from './Palette/Palette';
 import Menu from './Menu/Menu';
@@ -8,12 +10,18 @@ import './art-board.css'
 
 class ArtBoard extends Component {
   static propTypes = {
+    data: React.PropTypes.shape({
+      loading: React.PropTypes.bool,
+      error: React.PropTypes.object,
+      Grid: React.PropTypes.object,
+    }).isRequired,
     name: React.PropTypes.string,
     id: React.PropTypes.number,
   };
   render() {
     return (
       <div className="ArtBoard">
+      {this.props.data.id}
       <Menu/>
         <Palette colors={this.props.colors} 
                  selectedColor={this.props.selectedColor} 
@@ -36,6 +44,29 @@ function mapStateToProps(state) {
   };
 }
 
+const GridQuery = gql`
+query{
+  getGridById(id:8){
+    id
+    user {
+      id
+      name
+    }
+    title
+    likes
+    width
+    height
+    frames
+    createdAt
+  }
+}
+`
 
 
-export const ArtBoardContainer=connect(mapStateToProps, actionCreators)(ArtBoard);
+const ArtBoardWithData = graphql(GridQuery, {
+  options:{
+
+  }
+})(ArtBoard);
+
+export const ArtBoardContainer=connect(mapStateToProps, actionCreators)(ArtBoardWithData);

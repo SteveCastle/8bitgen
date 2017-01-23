@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import { Provider } from 'react-redux';
 import reducer from './reducers/reducer';
-import { Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
+import { Router, Route, browserHistory, IndexRoute} from 'react-router'
 import loggingMiddleware from './middleware/loggingMiddleware';
 import ApolloClient, { createNetworkInterface }  from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
@@ -31,7 +30,7 @@ const initialState = {grids: {
 }
 
 const client = new ApolloClient({
-    networkInterface: createNetworkInterface({uri:'http://localhost:3001/graphql'})
+    networkInterface: createNetworkInterface({uri:'http://localhost:3000/graphql'})
 });
 
 const configureStore = function configureStore(initialState) {
@@ -42,6 +41,7 @@ const configureStore = function configureStore(initialState) {
             }),
         initialState, compose(
             applyMiddleware(
+                client.middleware(),
                 loggingMiddleware,
             ),
             window.devToolsExtension ? window.devToolsExtension() : f => f
