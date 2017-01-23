@@ -8,12 +8,7 @@ class Grid extends Component {
     return (window.innerHeight < window.innerWidth) ? window.innerHeight : window.innerWidth;
   }
   static propTypes = {
-    GridNumber: React.PropTypes.string,
-    sizeX: React.PropTypes.number,
-    sizeY: React.PropTypes.number,
-    frames: React.PropTypes.array,
-    currentFrame: React.PropTypes.number,
-    totalFrames: React.PropTypes.number
+    Grid: React.PropTypes.object,
   };
   render() {
     const style = {
@@ -22,11 +17,11 @@ class Grid extends Component {
     }
     return (
       <div className="Grid" style={style}>
-        <Info name={'Link'}
-              user={'STC'}
-              votes={5}
+        <Info name={this.props.Grid.title}
+              user= {this.props.Grid.user}
+              likes= {this.props.Grid.likes}
         />
-        <Frame sprite={this.props.frames[this.props.currentFrame]}
+        <Frame sprite={this.props.Grid.frames[this.props.currentFrame]}
                paintCell={this.props.paintCell} 
                frameNumber={this.props.currentFrame}/>
       </div>

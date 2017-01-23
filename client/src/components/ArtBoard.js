@@ -13,21 +13,28 @@ class ArtBoard extends Component {
     data: React.PropTypes.shape({
       loading: React.PropTypes.bool,
       error: React.PropTypes.object,
-      Grid: React.PropTypes.object,
+      getGridById: React.PropTypes.object,
     }).isRequired,
     name: React.PropTypes.string,
     id: React.PropTypes.number,
   };
   render() {
+    if (this.props.data.loading) {
+      return (<div>Loading</div>)
+    }
+
+    if (this.props.data.error) {
+      console.log(this.props.data.error)
+      return (<div>An unexpected error occurred</div>)
+    }
     return (
       <div className="ArtBoard">
-      {this.props.data.id}
       <Menu/>
         <Palette colors={this.props.colors} 
                  selectedColor={this.props.selectedColor} 
                  switchColor={this.props.switchColor}/>
         <Grid currentFrame={this.props.currentFrame}
-              frames={this.props.frames}
+              Grid={this.props.data.getGridById}
               paintCell={this.props.paintCell}/>
       </div>
     );
@@ -51,6 +58,7 @@ query{
     user {
       id
       name
+      iconUrl
     }
     title
     likes

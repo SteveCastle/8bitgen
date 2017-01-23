@@ -18,7 +18,7 @@ export const Grid = new GraphQLObjectType({
 	description: 'A grid object.',
 	fields: () => ({
 		id: {type: new GraphQLNonNull(GraphQLID), description: 'The grid id.'},
-    user: {type: new GraphQLNonNull(GraphQLID), description: 'The userId that created the grid'},
+    userId: {type: new GraphQLNonNull(GraphQLID), description: 'The userId that created the grid'},
     title: {type: new GraphQLNonNull(GraphQLString), description: 'The grid title'},
     createdAt: {type: GraphQLString, description: 'The datetime the grid was created'},
     updatedAt: {type: GraphQLString, description: 'The datetime the grid was last updated'},
@@ -27,7 +27,7 @@ export const Grid = new GraphQLObjectType({
     likes: {type: GraphQLInt, description: 'Number of likes received by this grid'},
     user: {type: User, 
            description: 'The user who created this grid',
-           resolve: () => ({id:5, name:'STC'})
+           resolve: () => ({id:5, name:'STC', iconUrl:'/img/creator.png'})
   },
     frames: {
       type: new GraphQLList(new GraphQLList(new GraphQLList(GraphQLString))),

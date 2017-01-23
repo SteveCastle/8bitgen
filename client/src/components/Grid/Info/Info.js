@@ -9,10 +9,10 @@ class Info extends Component {
   render() {
     return (
       <div className="Info">
-      <h2>Link</h2>
+      <h2>{this.props.name}</h2>
       <span>8X8</span>
-      <CharacterIcon name={'PCH'} iconUrl={'/img/creator.png'}/>
-      <span className="heartCount"><img src="/img/heart.png" alt="Heart rating"/> X {this.props.votes}</span>
+      <CharacterIcon name={this.props.user.name} iconUrl={this.props.user.iconUrl}/>
+      <span className="heartCount"><img src="/img/heart.png" alt="Heart rating"/> X {this.props.likes}</span>
       </div>
     );
   }
