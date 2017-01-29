@@ -9,6 +9,7 @@ import {
   GraphQLList
 } from 'graphql';
 
+import {makeRequired} from '../utils';
 import {Frame} from '../Frame/frameSchema';
 import {User} from '../User/userSchema';
 
@@ -50,3 +51,22 @@ export const Grid = new GraphQLObjectType({
 
 	})
 })
+
+const inputFields = {
+  id: {type: GraphQLID, description: 'The laneId'},
+  userId: {type: GraphQLID, description: 'The userId that created the grid'},
+  isPrivate: {type: GraphQLBoolean, description: 'Whether the grid is visible to other users'},
+  title: {type: GraphQLString, description: 'The lane title'}
+};
+
+export const UpdatedGrid = new GraphQLInputObjectType({
+  name: 'UpdatedGrid',
+  description: 'Args to update a grid',
+  fields: () => makeRequired(inputFields, ['id'])
+});
+
+export const NewGrid = new GraphQLInputObjectType({
+  name: 'NewGrid',
+  description: 'Args to add a grid',
+  fields: () => makeRequired(inputFields, ['userId', 'title'])
+});
