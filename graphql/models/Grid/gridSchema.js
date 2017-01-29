@@ -71,5 +71,5 @@ export const UpdatedGrid = new GraphQLInputObjectType({
 export const NewGrid = new GraphQLInputObjectType({
   name: 'NewGrid',
   description: 'Args to add a grid',
-  fields: () => makeRequired(inputFields, ['userId', 'title'])
+  fields: () => makeRequired(inputFields, ['userId', 'title', 'frames'])
 });
