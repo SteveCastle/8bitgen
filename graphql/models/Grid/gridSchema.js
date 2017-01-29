@@ -10,7 +10,6 @@ import {
 } from 'graphql';
 
 import {makeRequired} from '../utils';
-import {Frame} from '../Frame/frameSchema';
 import {User} from '../User/userSchema';
 
 
@@ -56,7 +55,11 @@ const inputFields = {
   id: {type: GraphQLID, description: 'The laneId'},
   userId: {type: GraphQLID, description: 'The userId that created the grid'},
   isPrivate: {type: GraphQLBoolean, description: 'Whether the grid is visible to other users'},
-  title: {type: GraphQLString, description: 'The lane title'}
+  title: {type: GraphQLString, description: 'The lane title'},
+  frames: {
+      type: new GraphQLList(new GraphQLList(new GraphQLList(GraphQLString))),
+      description: 'The Frames in this grid.'
+    }
 };
 
 export const UpdatedGrid = new GraphQLInputObjectType({
